@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NexCart | Premium E-commerce Website</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="loader-wrapper" id="loaderWrapper">
+    <div class="loader"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#home" class="logo">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span>NexCart</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#features">Features</a>
+        <a href="#cartSection">Cart</a>
+        <a href="#checkout">Checkout</a>
+        <a href="#orders">Orders</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="wishlistBtn" title="Wishlist" type="button">
+          <i class="fa-regular fa-heart"></i>
+          <span class="count-badge" id="wishlistCount">0</span>
+        </button>
+
+        <button class="icon-btn" id="cartBtn" title="Cart" type="button">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="count-badge" id="cartCount">0</span>
+        </button>
+
+        <!-- Login button becomes Avatar + Name + Dropdown after login -->
+        <div id="authSection">
+          <button onclick="openAuthModal()" class="primary-btn" type="button">
+            Login
+          </button>
+        </div>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle Menu" type="button">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <button id="themeToggle" class="icon-btn" type="button">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="tag">Premium Shopping Experience</span>
+        <h1>Shop smarter with <span>NexCart</span></h1>
+        <p>
+          Discover premium products with a smooth shopping experience.
+          Search fast, filter easily, save favorites, and checkout like a real app.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#products" class="primary-btn">Shop Now</a>
+          <a href="#features" class="secondary-btn">Explore Features</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <h3>50+</h3>
+            <p>Products Ready</p>
+          </div>
+          <div class="stat-card">
+            <h3>100%</h3>
+            <p>Smooth UI</p>
+          </div>
+          <div class="stat-card">
+            <h3>24/7</h3>
+            <p>Easy Shopping</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="hero-card hero-card-1">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800" alt="Shoes" />
+        </div>
+
+        <div class="hero-card hero-card-2">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800" alt="Watch" />
+        </div>
+
+        <div class="floating-badge">
+          <i class="fa-solid fa-star"></i>
+          <span>Top Rated Products</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features section" id="features">
+    <div class="container">
+      <div class="section-heading">
+        <span>Why NexCart</span>
+        <h2>Built like a real shopping platform</h2>
+        <p>
+          Premium look, smart filtering, wishlist, cart management,
+          coupons, checkout, authentication, and order tracking.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h3>Fast Search</h3>
+          <p>Find products instantly with live search.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-filter"></i>
+          <h3>Smart Filters</h3>
+          <p>Filter by category and sort by price or rating.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-regular fa-heart"></i>
+          <h3>Wishlist</h3>
+          <p>Save your favorite items for later.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <h3>Cart System</h3>
+          <p>Manage quantity, remove items, and track total easily.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-ticket"></i>
+          <h3>Coupons</h3>
+          <p>Apply discount codes like SAVE10 during checkout.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-user-shield"></i>
+          <h3>User Authentication</h3>
+          <p>Register, login, and place orders as a real user.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products section" id="products">
+    <div class="container"> 
+      <div class="section-heading">
+        <span>Our Collection</span>
+        <h2>Trending Products</h2>
+        <p>
+          Browse premium picks with category filters, sorting options,
+          and quick-view product modal.
+        </p>
+      </div>
+
+      <div class="controls">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Search products..." />
+        </div>
+
+        <div class="filter-box">
+          <select id="categoryFilter">
+            <option value="all">All Categories</option>
+            <option value="fashion">Fashion</option>
+            <option value="electronics">Electronics</option>
+            <option value="footwear">Footwear</option>
+            <option value="accessories">Accessories</option>
+          </select>
+
+          <select id="sortOption">
+            <option value="default">Sort By</option>
+            <option value="priceLowHigh">Price: Low to High</option>
+            <option value="priceHighLow">Price: High to Low</option>
+            <option value="ratingHighLow">Rating: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <section class="cart-section section" id="cartSection">
+    <div class="container cart-layout">
+      <div class="cart-panel">
+        <div class="panel-header">
+          <h2><i class="fa-solid fa-cart-shopping"></i> Shopping Cart</h2>
+          <button class="clear-btn" id="clearCartBtn" type="button">Clear Cart</button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+      </div>
+
+      <div class="summary-panel">
+        <div class="panel-header">
+          <h2><i class="fa-solid fa-receipt"></i> Order Summary</h2>
+        </div>
+
+        <div class="coupon-box">
+          <label for="couponInput">Coupon Code</label>
+          <div class="coupon-input-wrap">
+            <input type="text" id="couponInput" placeholder="Enter coupon code" />
+            <button id="applyCouponBtn" type="button">Apply</button>
+          </div>
+          <small class="coupon-hint">Try: <strong>SAVE10</strong></small>
+        </div>
+
+        <div class="bill-box">
+          <div class="bill-row"><span>Subtotal</span><span id="subtotal">₹0</span></div>
+          <div class="bill-row"><span>Discount</span><span id="discount">₹0</span></div>
+          <div class="bill-row"><span>GST (18%)</span><span id="gst">₹0</span></div>
+          <div class="bill-row"><span>Delivery</span><span id="delivery">₹0</span></div>
+          <div class="bill-row total-row"><span>Total</span><span id="finalTotal">₹0</span></div>
+        </div>
+
+        <button class="checkout-btn" id="goToCheckoutBtn" type="button">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="wishlist-section section">
+    <div class="container">
+      <div class="panel-header">
+        <h2><i class="fa-regular fa-heart"></i> Wishlist</h2>
+      </div>
+
+      <div class="wishlist-grid" id="wishlistItems"></div>
+    </div>
+  </section>
+
+  <section class="checkout section" id="checkout">
+    <div class="container checkout-layout">
+      <div class="checkout-form-box">
+        <div class="section-heading left-align">
+          <span>Secure Order</span>
+          <h2>Checkout</h2>
+          <p>Fill in your details to place your order successfully.</p>
+        </div>
+
+        <form id="checkoutForm" class="checkout-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" placeholder="Enter full name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="Enter phone number" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" placeholder="Enter email address" required />
+            </div>
+
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" placeholder="Enter city" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" rows="4" placeholder="Enter full address" required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pincode">Pincode</label>
+              <input type="text" id="pincode" placeholder="Enter pincode" required />
+            </div>
+
+            <div class="form-group">
+              <label for="paymentMethod">Payment Method</label>
+              <select id="paymentMethod" required>
+                <option value="">Select payment method</option>
+                <option value="cod">Cash on Delivery</option>
+                <option value="upi">UPI</option>
+                <option value="card">Debit / Credit Card</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="place-order-btn">Place Order</button>
+        </form>
+      </div>
+
+      <div class="checkout-summary-box">
+        <div class="panel-header">
+          <h2><i class="fa-solid fa-box"></i> Final Summary</h2>
+        </div>
+
+        <div class="mini-summary">
+          <div class="bill-row"><span>Items</span><span id="checkoutItemsCount">0</span></div>
+          <div class="bill-row"><span>Subtotal</span><span id="checkoutSubtotal">₹0</span></div>
+          <div class="bill-row"><span>Discount</span><span id="checkoutDiscount">₹0</span></div>
+          <div class="bill-row"><span>GST</span><span id="checkoutGST">₹0</span></div>
+          <div class="bill-row"><span>Delivery</span><span id="checkoutDelivery">₹0</span></div>
+          <div class="bill-row total-row"><span>Total Payable</span><span id="checkoutTotal">₹0</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="order-history section" id="orders">
+    <div class="container">
+      <div class="section-heading">
+        <span>Purchase Records</span>
+        <h2>Your Orders</h2>
+        <p>
+          View all placed orders with customer details, payment method,
+          ordered items, tracking status, and total amount.
+        </p>
+      </div>
+
+      <button id="clearOrdersBtn" class="primary-btn" type="button">
+        Clear Order History
+      </button>
+
+      <h3 id="ordersCountTitle">Total Orders: 0</h3>
+
+      <div class="orders-list" id="ordersList"></div>
+    </div>
+  </section>
+  </section>  <!-- orders section ends -->
+
+<!-- 🎉 FINAL CTA SECTION -->
+<section class="final-cta section">
+  <h2>🎉 Your Journey Doesn't End Here</h2>
+  <p>Explore more products or track your next order</p>
+
+  <div class="final-actions">
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="primary-btn">
+      🔥 Explore More
+    </button>
+
+    <button onclick="loadOrdersFromBackend()" class="secondary-btn">
+      📦 Refresh Orders
+    </button>
+  </div>
+</section>
+
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-box">
+      <button class="close-modal" id="closeModalBtn" type="button">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-content" id="modalContent"></div>
+    </div>
+  </div>
+
+  <div class="success-modal-overlay" id="successModal">
+    <canvas id="confettiCanvas"></canvas>
+    <div class="success-modal-box">
+      <div class="success-icon">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <h2>Order Placed Successfully!</h2>
+
+      <p>
+        Thank you for shopping with NexCart. Your order has been confirmed.
+      </p>
+      <div class="truck-container">
+  <div class="road"></div>
+
+  <div class="truck">
+    <div class="truck-body"></div>
+    <div class="truck-cabin"></div>
+
+    <div class="wheel wheel1"></div>
+    <div class="wheel wheel2"></div>
+  </div>
+</div>
+
+      <button id="continueShoppingBtn" class="primary-btn" type="button">
+        View Orders
+      </button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <h3>NexCart</h3>
+        <p>
+          Premium e-commerce internship project built with clean UI,
+          smooth UX, authentication, MongoDB orders, and real shopping flow.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#cartSection">Cart</a>
+        <a href="#checkout">Checkout</a>
+        <a href="#orders">Orders</a>
+      </div>
+
+      <div class="footer-socials">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="auth-modal" id="authModal">
+    <div class="auth-box">
+      <span class="close-auth" onclick="closeAuthModal()">&times;</span>
+
+      <div class="auth-tabs">
+        <button id="loginTab" class="active" onclick="switchTab('login')" type="button">
+          Login
+        </button>
+        <button id="registerTab" onclick="switchTab('register')" type="button">
+          Register
+        </button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <h2>Welcome Back 👋</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit" class="auth-btn">Login</button>
+      </form>
+
+      <form id="registerForm" class="auth-form hidden">
+        <h2>Create Account 🚀</h2>
+        <input type="text" id="registerName" placeholder="Full Name" required />
+        <input type="email" id="registerEmail" placeholder="Email" required />
+        <input type="password" id="registerPassword" placeholder="Password" required />
+        <button type="submit" class="auth-btn">Register</button>
+      </form>
+    </div>
+  </div>
+  <div id="toastContainer"></div>
+  <script src="script.js"></script>
+</body>
+</html>
